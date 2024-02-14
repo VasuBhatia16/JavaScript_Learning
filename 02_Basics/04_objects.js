@@ -55,3 +55,40 @@ console.log(Object.entries(tinderUser));//Array of array of each key value pair
 
 console.log(tinderUser.hasOwnProperty('isLogged'));//False
 console.log(tinderUser.hasOwnProperty('isLoggedIn'));//True
+
+
+//Part - 3
+
+const course = {
+    courseName:"javaScipt",
+    price:"999",
+    courseInstructor:"hitesh"
+}
+
+// course.courseInstructor   Lengthy process
+
+const {courseInstructor: instructor} = course;
+
+// console.log(courseInstructor);// const {courseInstructor} = course;
+console.log(instructor);
+
+// const navbar = ({company}) => {
+
+// }
+
+// navbar(company = "Vasu Bhatia")
+
+// API === {       //json object without a name
+//     "name":"Vasu Bhatia",
+//     "age":"19"
+// }
+
+// [
+//     {},
+//     {},
+//     {}
+// ]
+
+
+
+//randomuser.me/api
