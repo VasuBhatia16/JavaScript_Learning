@@ -46,3 +46,50 @@ loginUserMessage("Vasu"); // No print statement no output
 console.log(loginUserMessage("Vasu"));
 console.log(loginUserMessage(""));
 console.log(loginUserMessage()); //undefined just logged in
+
+
+//Part - 2
+
+// function calculateCartPrice(num1){
+//     return num1
+// }
+
+// console.log(calculateCartPrice(2));// Fixed number 
+
+//But when we dont have total count of values then what to do
+
+// function calculateCartPrice(...num1){ 
+//     return num1 // ... rest operator
+// }
+// console.log(calculateCartPrice(2,3 ,4 ,5 ,6));//Returns array of numbers
+function calculateCartPrice(val1,val2,...num1){ 
+    return num1 // ... rest operator
+}
+console.log(calculateCartPrice(2,3 ,4 ,5 ,6));//Takes value after first 2 numbers'
+
+const user = {
+    username: "Vasu",
+    price:199
+}
+
+function handleObject(anyObject){
+    console.log(`Username ${anyObject.username} price:${anyObject.price}`);
+}
+
+handleObject(user)
+
+handleObject({
+    username: "Vasu Bhatia",
+    price:198
+})
+
+
+const myNewArray = [200,300,400,500]
+
+function returnSecondValue(arr){
+    console.log(`Second Value:  ${arr[1]}`);
+}
+returnSecondValue(myNewArray);
+
+returnSecondValue([3,5,7,8,9]);
+
