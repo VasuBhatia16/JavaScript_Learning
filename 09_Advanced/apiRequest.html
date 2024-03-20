@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color:#212121; color:#fff">
+    0	UNSENT	Client has been created. open() not called yet.
+    1	OPENED	open() has been called.
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+    3	LOADING	Downloading; responseText holds partial data.
+    4	DONE	The operation is complete.
+    <div id="card">
+
+    </div>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/vasubhatia16'
+    const xhr = new XMLHttpRequest();
+    // xhr.open() // 2 Parameters: method, url
+    xhr.open('GET',requestUrl);
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText); // Doesn't work in arrow functions as they don't support `this` binding
+            //JSON.parse as this.responseText is a string
+            console.log(`Followers: ${data.followers}`); 
+
+            document.getElementById('card').innerHTML = 
+            `
+            <img src=${data.avatar_url} style="border-radius:10px;width:200px;">
+            <section>
+                <p>Name: ${data.name}</p>
+                <p>Username: ${data.login}</p>
+                <p>Id: ${data.id}</p>
+
+            </section>
+            `
+        }
+    }
+    xhr.send() // Not called until send
+</script>
+<style>
+    #card{
+        margin:10% 0 0 30%;
+        display: flex;
+        flex-direction: column;
+        border-radius:10px;
+        background-color:#302f2f; 
+        width:250px;
+        justify-content: center;
+        align-items: center;
+    }
+    #card img{
+        margin: 15px;
+    }
+</style>
+</html>
