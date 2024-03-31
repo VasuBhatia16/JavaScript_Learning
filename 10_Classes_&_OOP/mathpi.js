@@ -19,7 +19,7 @@ const chai = {
 Object.defineProperty(chai,'name',{
     // writable: false,
     enumerable:false,
-    8
+    
 })
 
 
